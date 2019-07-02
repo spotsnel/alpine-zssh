@@ -5,14 +5,14 @@ RUN { \
         echo "http://mirrors.aliyun.com/alpine/v3.8/community"; \
     } > /etc/apk/repositories
 
-RUN apk add autoconf gcc make libffi-dev openssl-dev readline 
-RUN apk add g++
+RUN apk add autoconf g++ gcc make libffi-dev openssl-dev readline 
 RUN mkdir /build
 ADD zssh-1.5a.tgz /build
 WORKDIR /build/zssh-1.5a
-RUN ls & autoheader && ./configure --disable-readline || true
-RUN make
+
 # build from source
+RUN autoheader && ./configure --disable-readline || true
+RUN make
 
 # cp from builder
 FROM alpine:3.8
