@@ -16,4 +16,10 @@ RUN make
 
 # cp from builder
 FROM alpine:3.8
+RUN { \
+        echo "http://mirrors.aliyun.com/alpine/v3.8/main"; \
+        echo "http://mirrors.aliyun.com/alpine/v3.8/community"; \
+    } > /etc/apk/repositories
+
 COPY --from=builder /build/zssh-1.5a/zssh /usr/bin/zssh
+RUN apk add openssh
