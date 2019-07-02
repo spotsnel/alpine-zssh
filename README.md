@@ -1,4 +1,4 @@
-alpine-zssh
+# alpine-zssh
 
 install zssh for alpine linux
 
