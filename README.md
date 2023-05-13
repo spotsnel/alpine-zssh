@@ -1,6 +1,6 @@
 # alpine-zssh
 
-install zssh for alpine linux
+install `zssh` for Alpine linux
 
 ## build
 ```shell
